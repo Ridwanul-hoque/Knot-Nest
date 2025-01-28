@@ -1,13 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const navOptions = <>
-        <li><a>Item 1</a></li>
-        <li>
-            <a>Parent</a>
-            
-        </li>
-        <li><a>Item 3</a></li>
+       <li> <Link to={'/'}>Home</Link></li>
+        <li><Link to={'/BioData'}>Bio Data</Link></li>
+        
+        <li>About Us</li>
+        <li>Contact Us</li>
     </>
     return (
         <>
@@ -42,7 +42,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <Link to={'/login'}><a className="btn">Login</a></Link>
                 </div>
             </div>
 

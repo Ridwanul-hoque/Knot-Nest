@@ -1,9 +1,12 @@
 import React from 'react';
+import Banner from './Banner/Banner';
+import BioPremium from './BioPremium/BioPremium';
 
 const Home = () => {
     return (
         <div>
-            <h2>home</h2>
+            <Banner></Banner>
+            <BioPremium></BioPremium>
         </div>
     );
 };
