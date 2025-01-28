@@ -13,9 +13,9 @@ const Banner = () => {
             <div className="relative h-[500px]">
                 <img src={img1} alt="Banner 1" className="opacity-50" />
                 <div className="absolute inset-0  bg-opacity-50"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                    <h1 className="text-4xl font-bold">Heading 1</h1>
-                    <p className="text-lg mt-2">This is a paragraph for the first image.</p>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-pink-800">
+                    <h1 className="text-4xl font-bold">A New Beginning Awaits</h1>
+                    <p className="text-lg mt-2">Find your perfect match and start the beautiful journey of love and companionship. Your soulmate is just a click away.</p>
                 </div>
             </div>
 
@@ -23,9 +23,9 @@ const Banner = () => {
             <div className="relative h-[650px]">
                 <img src={img2} alt="Banner 2" className="opacity-50" />
                 <div className="absolute inset-0  bg-opacity-50"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                    <h1 className="text-4xl font-bold">Heading 2</h1>
-                    <p className="text-lg mt-2">This is a paragraph for the second image.</p>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-pink-800">
+                    <h1 className="text-4xl font-bold">Building Lifelong Connections</h1>
+                    <p className="text-lg mt-2">Create a meaningful bond based on trust, understanding, and love. Let us help you find someone who shares your values and dreams.</p>
                 </div>
             </div>
 
@@ -33,9 +33,9 @@ const Banner = () => {
             <div className="relative h-[500px]">
                 <img src={img3} alt="Banner 3" className="opacity-50" />
                 <div className="absolute inset-0  bg-opacity-50"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                    <h1 className="text-4xl font-bold">Heading 3</h1>
-                    <p className="text-lg mt-2">This is a paragraph for the third image.</p>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-pink-800">
+                    <h1 className="text-4xl font-bold">Join the Path of Love and Happiness</h1>
+                    <p className="text-lg mt-2">Take the first step toward a lifetime of joy, love, and togetherness. Explore profiles and meet like-minded individuals ready for commitment.</p>
                 </div>
             </div>
         </Carousel>

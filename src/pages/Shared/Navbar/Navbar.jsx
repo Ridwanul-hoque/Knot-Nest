@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
+import useAdmin from '../../../Hooks/useAdmin';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const [isAdmin] = useAdmin()
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
     const navOptions = <>
-       <li> <Link to={'/'}>Home</Link></li>
-        <li><Link to={'/BioData'}>Bio Data</Link></li>
-        
-        <li>About Us</li>
-        <li>Contact Us</li>
+
+        <li> <Link to={'/'} className="text-gray-800 hover:text-blue-500">Home</Link></li>
+        <li><Link to={'/BioData'} className="text-gray-800 hover:text-blue-500">Bio Data</Link></li>
+
+        {
+            user && isAdmin && <li><Link to='/dashboard/adminDashboard' className="text-gray-800 hover:text-blue-500">Dashboard</Link></li>
+        }
+        {
+            user && !isAdmin && <li><Link to='/dashboard/viewData' className="text-gray-800 hover:text-blue-500">Dashboard</Link></li>
+        }
     </>
     return (
         <>
-            <div className="navbar bg-base-100 shadow-sm">
-                <div className="navbar-start">
+            <div className="navbar bg-white shadow-lg py-4 px-8">
+                <div className="navbar-start flex items-center">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                class="h-5 w-5"
+                                className="h-5 w-5 text-gray-800"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -30,22 +44,30 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-white rounded-lg z-10 mt-3 w-52 p-4 shadow-lg">
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">KnotNest</a>
+                    <a className="btn btn-ghost text-2xl text-gray-800 font-bold">KnotNest</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navOptions}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <Link to={'/login'}><a className="btn">Login</a></Link>
+                <div className="navbar-end flex items-center space-x-4">
+                    {
+                        user ? (
+                            <>
+                                <span className="text-gray-800">{user?.displayName}</span>
+                                <button onClick={handleLogout} className="btn btn-ghost bg-red-500 text-white hover:bg-red-600">Logout</button>
+                            </>
+                        ) : (
+                            <li><Link to='/login' className="btn btn-ghost text-gray-800 hover:text-blue-500">Login</Link></li>
+                        )
+                    }
                 </div>
             </div>
-
         </>
     );
 };
