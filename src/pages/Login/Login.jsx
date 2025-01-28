@@ -15,7 +15,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 
 const Login = () => {
-    const { singInUser } = useContext(AuthContext);
+    const { signIn  } = useContext(AuthContext);
     const location = useLocation()
     const navigate = useNavigate()
     console.log('in signin page', location)
@@ -28,7 +28,7 @@ const Login = () => {
 
         console.log(email, password)
 
-        singInUser(email, password)
+        signIn(email, password)
             .then(result => {
                 console.log('Sign In', result.user)
                 navigate(from)

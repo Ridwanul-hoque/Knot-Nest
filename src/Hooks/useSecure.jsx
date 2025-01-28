@@ -25,11 +25,11 @@ const useSecure = () =>{
     }, async function(error){
         const status = error.response.status
         console.log('status error', status)
-        if(status === 401 || status === 403){
-            await logOut()
-            navigate('/login')
+        // if(status === 401 || status === 403){
+        //     await logOut()
+        //     // navigate('/login')
 
-        }
+        // }
         return Promise.reject(error)
     })
 
