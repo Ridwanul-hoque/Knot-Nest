@@ -22,7 +22,7 @@ const UserDashboard = () => {
         <div className="flex items-center space-x-6 mb-6">
           {/* User Image */}
           <img
-            src={user.photoURL || 'https://via.placeholder.com/150'}
+            src={user?.photoURL || 'https://via.placeholder.com/150'}
             alt={user.displayName}
             className="w-24 h-24 object-cover rounded-full border-4 border-yellow-500"
           />

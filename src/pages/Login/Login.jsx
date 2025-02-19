@@ -1,4 +1,4 @@
-import React,{ useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
@@ -15,7 +15,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 
 
 const Login = () => {
-    const { signIn  } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const location = useLocation()
     const navigate = useNavigate()
     console.log('in signin page', location)
@@ -42,12 +42,12 @@ const Login = () => {
 
     }
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero bg-base-200 min-h-screen p-8">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left w-96">
                     <Lottie animationData={login}></Lottie>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-8">
                     <h1 className=" ml-8 mt-2 text-5xl font-bold">Login now!</h1>
                     <form onSubmit={handleSignIn} className="card-body">
                         <div className="form-control">
@@ -66,8 +66,8 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn bg-[#C57478] text-white">Login</button>
-                            <p>Don't have an account? <Link className='text-black-700' to='/register'>Register</Link></p>
+                            <button className="btn bg-pink-800 text-yellow-500">Login</button>
+                            <p>Don't have an account? <Link className='text-yellow-500' to='/register'>Register</Link></p>
                         </div>
                     </form>
                     <SocialLogin></SocialLogin>

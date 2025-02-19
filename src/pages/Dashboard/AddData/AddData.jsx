@@ -59,7 +59,7 @@ export const AddData = () => {
 
     return (
         <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-8 bg-white shadow-xl rounded-lg">
-            <h2 className="text-3xl font-bold mb-8 text-yellow-500">Add Biodata</h2>
+            <h2 className="text-3xl font-bold mb-8 text-yellow-500">Add Your Biodata</h2>
             <div className="grid grid-cols-2 gap-4">
                 <select
                     name="biodataType"
@@ -219,7 +219,7 @@ export const AddData = () => {
             </div>
             <button
                 type="submit"
-                className="mt-6 w-full bg-yellow-500 text-white py-3 rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-700"
+                className="mt-6 w-full bg-pink-800 text-yellow-500 py-3 rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-700"
             >
                 Submit
             </button>

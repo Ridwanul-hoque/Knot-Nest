@@ -55,7 +55,7 @@ const Registration = () => {
         <div>
             <div className="hero bg-base-200 min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-2">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -94,15 +94,15 @@ const Registration = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign Up" />
+                                <input className="btn bg-pink-800 text-yellow-500 " type="submit" value="Sign Up" />
 
                             </div>
                             <SocialLogin></SocialLogin>
                         </form>
-                        <p></p>
+                        
                         <p>
                             <small>
-                                Already have an Account? <Link to="/login">Login</Link>
+                                Already have an Account? <Link to="/login" className='text-yellow-500'>Login</Link>
                             </small>
                         </p>
                     </div>

@@ -59,18 +59,18 @@ const ViewData = () => {
 
   return (
     <div className="max-w-6xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-6">Your Biodata</h2>
+      <h2 className="text-3xl font-semibold mb-6 text-center text-yellow-600">Your Biodata</h2>
       <div className="space-y-4">
         {biodata.map((data) => (
           <div
             key={data._id}
-            className="flex items-center justify-between p-4 bg-gray-100 rounded-lg shadow"
+            className="flex items-center justify-between p-4 bg-gray-100 rounded-lg shadow hover:bg-gray-200 transition-colors"
           >
             <div className="flex items-center gap-4">
               <img
                 src={data.profileImage || (data.biodataType === "Male" ? "/male.png" : "/female.png")}
                 alt="Profile"
-                className="w-16 h-16 rounded-full"
+                className="w-16 h-16 rounded-full object-cover"
               />
               <div>
                 <p className="text-lg font-semibold">{data.name}</p>
@@ -79,7 +79,7 @@ const ViewData = () => {
             </div>
             <button
               onClick={() => handleUpdate(data)}
-              className="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600"
+              className="bg-yellow-500 text-white p-2 rounded hover:bg-yellow-600 transition"
             >
               Update
             </button>
@@ -91,8 +91,8 @@ const ViewData = () => {
       {isModalOpen && selectedBiodata && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-6xl w-full">
-            <h3 className="text-2xl font-bold mb-4">Update Biodata</h3>
-            <form onSubmit={handleSave} className="grid grid-cols-3 gap-4">
+            <h3 className="text-2xl font-bold mb-4 text-center text-yellow-600">Update Biodata</h3>
+            <form onSubmit={handleSave} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {Object.keys(updatedBiodata).map((key) => (
                 key !== "_id" ? (
                   <div key={key} className="mb-4">
@@ -103,7 +103,7 @@ const ViewData = () => {
                       value={updatedBiodata[key]}
                       onChange={handleChange}
                       disabled={key === "email" || key === "profileImage"}
-                      className={`w-full p-2 border border-gray-300 rounded ${key === "email" || key === "profileImage" ? "bg-gray-200" : ""}`}
+                      className={`w-full p-2 border border-gray-300 rounded-md ${key === "email" || key === "profileImage" ? "bg-gray-200 cursor-not-allowed" : ""}`}
                     />
                   </div>
                 ) : null
@@ -112,13 +112,13 @@ const ViewData = () => {
                 <button
                   type="button"
                   onClick={handleCloseModal}
-                  className="bg-gray-500 text-white p-2 rounded"
+                  className="bg-gray-500 text-white p-2 rounded-md hover:bg-gray-600 transition"
                 >
                   Close
                 </button>
                 <button
                   type="submit"
-                  className="bg-yellow-500 text-white p-2 rounded"
+                  className="bg-yellow-500 text-white p-2 rounded-md hover:bg-yellow-600 transition"
                 >
                   Save
                 </button>
