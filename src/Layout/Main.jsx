@@ -13,7 +13,7 @@ const Main = () => {
     };
     return (
         <div>
-            <div className='bg-pink-800'>
+            <div className='sticky top-0 z-[1000] bg-pink-800 shadow-md'>
                 <Navbar scrollToReview={scrollToReview}></Navbar>
             </div>
             <Outlet></Outlet>

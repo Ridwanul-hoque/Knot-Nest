@@ -35,16 +35,16 @@ const AllBioData = () => {
     };
 
     return (
-        <div className="flex">
+        <div className="flex max-w-screen-xl mx-auto">
             {/* Filter Sidebar */}
-            <div className="w-1/4 p-5 bg-gray-100">
-                <h2 className="font-semibold mb-4">Filter by</h2>
-                <button onClick={() => handleFilter('age', '20-30')} className="block mb-2">Age: 20-30</button>
-                <button onClick={() => handleFilter('age', '31-40')} className="block mb-2">Age: 31-40</button>
-                <button onClick={() => handleFilter('biodataType', 'Male')} className="block mb-2">Gender: Male</button>
-                <button onClick={() => handleFilter('biodataType', 'Female')} className="block mb-2">Gender: Female</button>
-                <button onClick={() => handleFilter('permanentDivision', 'Dhaka')} className="block mb-2">Location: Dhaka</button>
-                <button onClick={() => handleFilter('permanentDivision', 'Chittagong')} className="block mb-2">Location: Chittagong</button>
+            <div className="w-1/4 p-5 bg-pink-100">
+                <h2 className="font-semibold mb-4 text-pink-800">Filter by</h2>
+                <button onClick={() => handleFilter('age', '20-30')} className="block mb-2 text-yellow-500">Age: 20-30</button>
+                <button onClick={() => handleFilter('age', '31-40')} className="block mb-2 text-yellow-500">Age: 31-40</button>
+                <button onClick={() => handleFilter('biodataType', 'Male')} className="block mb-2 text-yellow-500">Gender: Male</button>
+                <button onClick={() => handleFilter('biodataType', 'Female')} className="block mb-2 text-yellow-500">Gender: Female</button>
+                <button onClick={() => handleFilter('permanentDivision', 'Dhaka')} className="block mb-2 text-yellow-500">Location: Dhaka</button>
+                <button onClick={() => handleFilter('permanentDivision', 'Chittagong')} className="block mb-2 text-yellow-500">Location: Chittagong</button>
                 <button
                     onClick={() => setFilter({ age: '', biodataType: '', permanentDivision: '' })}
                     className="block mb-2 text-red-500"
