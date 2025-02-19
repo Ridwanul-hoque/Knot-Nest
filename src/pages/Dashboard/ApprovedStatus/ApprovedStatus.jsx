@@ -46,17 +46,17 @@ const PaymentTable = () => {
 
   return (
     <div className="max-w-6xl mx-auto py-8">
-      <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">Payment Table</h2>
+      <h2 className="text-3xl font-semibold text-center text-yellow-500 mb-6">Payment Table</h2>
       <div className="bg-white p-6 rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead>
-            <tr className="bg-blue-500 text-white">
-              <th className="py-3 px-4 text-left">User Email</th>
-              <th className="py-3 px-4 text-left">Biodata ID</th>
-              <th className="py-3 px-4 text-left">Amount</th>
-              <th className="py-3 px-4 text-left">Status</th>
-              <th className="py-3 px-4 text-left">Timestamp</th>
-              <th className="py-3 px-4 text-left">Action</th>
+            <tr className="bg-pink-800 text-white">
+              <th className="py-3 px-4 text-left text-yellow-500">User Email</th>
+              <th className="py-3 px-4 text-left text-yellow-500">Biodata ID</th>
+              <th className="py-3 px-4 text-left text-yellow-500">Amount</th>
+              <th className="py-3 px-4 text-left text-yellow-500">Status</th>
+              <th className="py-3 px-4 text-left text-yellow-500">Timestamp</th>
+              <th className="py-3 px-4 text-left text-yellow-500">Action</th>
             </tr>
           </thead>
           <tbody>
