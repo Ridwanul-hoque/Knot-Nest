@@ -8,7 +8,7 @@ const Favourite = () => {
     useEffect(() => {
         if (user?.email) {
             // Fetch favourites for the logged-in user
-            fetch(`https://knot-nest-server.vercel.app/favourites?email=${user.email}`)
+            fetch(`http://localhost:5000/favourites?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);  // Log the response to check its format

@@ -13,7 +13,7 @@ const ViewData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://knot-nest-server.vercel.app/Bio-email?email=${user.email}`);
+        const response = await fetch(`http://localhost:5000/Bio-email?email=${user.email}`);
         const result = await response.json();
         setBiodata(result);
       } catch (error) {
@@ -42,7 +42,7 @@ const ViewData = () => {
   const handleSave = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`https://knot-nest-server.vercel.app/Bio-email?email=${user.email}`, {
+      const response = await fetch(`http://localhost:5000/Bio-email?email=${user.email}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedBiodata),

@@ -13,19 +13,21 @@ const Navbar = () => {
     }
     const navOptions = <>
 
-        <li> <Link to={'/'} className="text-gray-800 hover:text-blue-500">Home</Link></li>
-        <li><Link to={'/BioData'} className="text-gray-800 hover:text-blue-500">Bio Data</Link></li>
+        <li> <Link to={'/'} className="text-yellow-500 hover:text-black">Home</Link></li>
+        <li><Link to={'/BioData'} className="text-yellow-500 hover:text-black">Bio Data</Link></li>
+        <li><Link to={'/review'} className='text-yellow-500 hover:text-black'>Customer Review</Link></li>
+        <li><Link className='text-yellow-500 hover:text-black'>Customer Support</Link></li>
 
         {
-            user && isAdmin && <li><Link to='/dashboard/adminDashboard' className="text-gray-800 hover:text-blue-500">Dashboard</Link></li>
+            user && isAdmin && <li><Link to='/dashboard/adminDashboard' className="text-yellow-500 hover:text-black">Dashboard</Link></li>
         }
         {
-            user && !isAdmin && <li><Link to='/dashboard/viewData' className="text-gray-800 hover:text-blue-500">Dashboard</Link></li>
+            user && !isAdmin && <li><Link to='/dashboard/viewData' className="text-yellow-500 hover:text-black">Dashboard</Link></li>
         }
     </>
     return (
         <>
-            <div className="navbar bg-white shadow-lg py-4 px-8">
+            <div className="navbar py-4 px-8 max-w-screen-xl mx-auto">
                 <div className="navbar-start flex items-center">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,7 +50,7 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl text-gray-800 font-bold">KnotNest</a>
+                    <a className="text-2xl text-yellow-500 font-bold">KnotNest</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -59,11 +61,11 @@ const Navbar = () => {
                     {
                         user ? (
                             <>
-                                <span className="text-gray-800">{user?.displayName}</span>
-                                <button onClick={handleLogout} className="btn btn-ghost bg-red-500 text-white hover:bg-red-600">Logout</button>
+                                <span className="text-yellow-500">{user?.displayName}</span>
+                                <button onClick={handleLogout} className="btn btn-ghost bg-red-500 text-yellow-500 hover:bg-red-600">Logout</button>
                             </>
                         ) : (
-                            <li><Link to='/login' className="btn btn-ghost text-gray-800 hover:text-blue-500">Login</Link></li>
+                            <li><Link to='/login' className="btn btn-ghost text-yellow-500 hover:text-black">Login</Link></li>
                         )
                     }
                 </div>

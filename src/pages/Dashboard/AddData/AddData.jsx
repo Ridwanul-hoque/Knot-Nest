@@ -36,7 +36,7 @@ export const AddData = () => {
         e.preventDefault();
         biodata.email = user.email;
         try {
-            const response = await fetch("https://knot-nest-server.vercel.app/Bio", {
+            const response = await fetch("http://localhost:5000/Bio", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(biodata),

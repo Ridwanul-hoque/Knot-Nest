@@ -74,7 +74,7 @@ const Checkout = () => {
         status: "pending", // Payment status initially set to "pending"
       };
 
-      const response = await fetch("https://knot-nest-server.vercel.app/payment", {
+      const response = await fetch("http://localhost:5000/payment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

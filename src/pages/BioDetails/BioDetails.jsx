@@ -22,7 +22,7 @@ const BioDetails = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://knot-nest-server.vercel.app/isPremium/${user.email}`)
+            fetch(`http://localhost:5000/isPremium/${user.email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setIsPremium(data.isPremium); // Update isPremium state
@@ -31,7 +31,7 @@ const BioDetails = () => {
     }, [user?.email]);
 
     const handleAddToFavorites = () => {
-        fetch(`https://knot-nest-server.vercel.app/add-favorite`, {  // Correct endpoint for adding to favorites
+        fetch(`http://localhost:5000/add-favorite`, {  // Correct endpoint for adding to favorites
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

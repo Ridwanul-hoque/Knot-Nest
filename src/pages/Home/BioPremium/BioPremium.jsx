@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import BioCard from '../../Shared/BioCard/BioCard';
+import Review from '../../Shared/Review/Review';
 
 const BioPremium = () => {
     const [Bios, setBios] = useState([])
     // const premium = Bio.filter(item => item.role === 'premium')
 
     useEffect(() => {
-        fetch('https://knot-nest-server.vercel.app/Bio')
+        fetch('http://localhost:5000/Bio')
             .then(res => res.json())
             .then(data => {
                 const premiumBio = data.filter(item => item.role === 'premium');
@@ -27,6 +28,7 @@ const BioPremium = () => {
                     View All BioData's
                 </button>
             </div>
+            
         </div>
     );
 };

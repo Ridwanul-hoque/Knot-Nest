@@ -17,7 +17,7 @@ const CheckoutForm = ({ user, biodata, amount, navigate }) => {
         const card = elements.getElement(CardElement);
 
         // Create payment intent on the server
-        const response = await fetch("https://knot-nest-server.vercel.app/create-payment-intent", {
+        const response = await fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +57,7 @@ const CheckoutForm = ({ user, biodata, amount, navigate }) => {
             };
 
             // Sending payment info to the backend
-            fetch("https://knot-nest-server.vercel.app/payment", {
+            fetch("http://localhost:5000/payment", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -19,6 +19,7 @@ import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import Favourite from "../pages/Dashboard/Favourite/Favourite";
 import ContactRequest from "../pages/Dashboard/ContactRequest/ContactRequest";
 import ApprovedStatus from "../pages/Dashboard/ApprovedStatus/ApprovedStatus";
+import Review from "../pages/Shared/Review/Review";
 
 
 
@@ -39,12 +40,12 @@ export const router = createBrowserRouter([
       {
         path: 'BioData/:id',
         element: <BioDetails></BioDetails>,
-        loader: ({ params }) => fetch(`https://knot-nest-server.vercel.app/Bio/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/Bio/${params.id}`)
       },
       {
         path: 'checkout/:id',
         element: <CheckOut></CheckOut>,
-        loader: ({ params }) => fetch(`https://knot-nest-server.vercel.app/Bio/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/Bio/${params.id}`)
       },
       {
         path: 'register',
@@ -53,6 +54,11 @@ export const router = createBrowserRouter([
       {
         path: 'BioData',
         element: <AllBioData></AllBioData>,
+
+      },
+      {
+        path: 'review',
+        element: <Review></Review>,
 
       },
     ]

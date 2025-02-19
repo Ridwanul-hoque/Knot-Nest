@@ -6,9 +6,14 @@ import Navbar from '../pages/Shared/Navbar/Navbar';
 const Main = () => {
     return (
         <div>
-            <Navbar></Navbar>
+            <div className='bg-pink-800'>
+                <Navbar></Navbar>
+            </div>
             <Outlet></Outlet>
-            <Footer></Footer>
+            
+            <div className='bg-pink-800'>
+                <Footer></Footer>
+            </div>
         </div>
     );
 };
