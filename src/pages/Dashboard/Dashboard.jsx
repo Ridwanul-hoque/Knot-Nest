@@ -3,13 +3,17 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { VscPreview } from "react-icons/vsc";
 import useAdmin from '../../Hooks/useAdmin';
-import { FaHome, FaUser } from 'react-icons/fa';
+import { FaAdjust, FaHome, FaUser } from 'react-icons/fa';
+import { IoIosContact } from "react-icons/io"
+import { MdOutlineViewInAr } from "react-icons/md";
+import { GrContactInfo } from "react-icons/gr";
+import { CiSquareQuestion } from "react-icons/ci";
 
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
 
-    
+
     return (
         <div className='flex'>
             {/* Sidebar */}
@@ -28,10 +32,10 @@ const Dashboard = () => {
                                         <FaUser /> Manage Users
                                     </NavLink>
                                 </li>
-                                
+
                                 <li>
                                     <NavLink to="/dashboard/approveStatus">
-                                        Approved Contact Request
+                                    <CiSquareQuestion /> Approved Contact Request
                                     </NavLink>
                                 </li>
 
@@ -40,22 +44,22 @@ const Dashboard = () => {
                             <>
                                 <li>
                                     <NavLink to="/dashboard/user">
-                                        Profile
+                                        <IoIosContact />Profile
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/addData">
-                                        Add Biodata
+                                        <FaAdjust></FaAdjust>Add Biodata
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/viewData">
-                                        View Biodata
+                                        <MdOutlineViewInAr />View Biodata
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/contact">
-                                        My Contact Request
+                                        <GrContactInfo /> My Contact Request
                                     </NavLink>
                                 </li>
                                 <li>
