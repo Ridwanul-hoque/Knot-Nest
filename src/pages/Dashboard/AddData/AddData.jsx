@@ -58,14 +58,14 @@ export const AddData = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-            <h2 className="text-2xl font-bold mb-6">Add Biodata</h2>
+        <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-8 bg-white shadow-xl rounded-lg">
+            <h2 className="text-3xl font-bold mb-8 text-yellow-500">Add Biodata</h2>
             <div className="grid grid-cols-2 gap-4">
                 <select
                     name="biodataType"
                     onChange={handleChange}
                     required
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 >
                     <option value="">Select Gender</option>
                     <option value="Male">Male</option>
@@ -77,20 +77,20 @@ export const AddData = () => {
                     placeholder="Name"
                     onChange={handleChange}
                     required
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <input
                     type="url"
                     name="profileImage"
                     placeholder="Profile Image URL"
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <input
                     type="date"
                     name="dob"
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <input
                     type="number"
@@ -98,7 +98,7 @@ export const AddData = () => {
                     placeholder="Height (cm)"
                     onChange={handleChange}
                     required
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <input
                     type="number"
@@ -106,20 +106,20 @@ export const AddData = () => {
                     placeholder="Weight (kg)"
                     onChange={handleChange}
                     required
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <input
                     type="number"
                     name="age"
                     placeholder="Age"
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <select
                     name="occupation"
                     onChange={handleChange}
                     required
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 >
                     <option value="">Select Occupation</option>
                     <option value="Student">Student</option>
@@ -130,7 +130,7 @@ export const AddData = () => {
                     name="race"
                     onChange={handleChange}
                     required
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 >
                     <option value="">Select Race</option>
                     <option value="Fair">Fair</option>
@@ -142,20 +142,20 @@ export const AddData = () => {
                     name="fathersName"
                     placeholder="Father's Name"
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <input
                     type="text"
                     name="mothersName"
                     placeholder="Mother's Name"
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <select
                     name="permanentDivision"
                     onChange={handleChange}
                     required
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 >
                     <option value="">Select Permanent Division</option>
                     <option value="Dhaka">Dhaka</option>
@@ -170,7 +170,7 @@ export const AddData = () => {
                     name="presentDivision"
                     onChange={handleChange}
                     required
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 >
                     <option value="">Select Present Division</option>
                     <option value="Dhaka">Dhaka</option>
@@ -186,27 +186,27 @@ export const AddData = () => {
                     name="expectedPartnerAge"
                     placeholder="Expected Partner Age"
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <input
                     type="number"
                     name="expectedPartnerHeight"
                     placeholder="Expected Partner Height (cm)"
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <input
                     type="number"
                     name="expectedPartnerWeight"
                     placeholder="Expected Partner Weight (kg)"
                     onChange={handleChange}
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
                 <input
                     type="email"
                     value={user.email}
                     readOnly
-                    className="p-2 border rounded bg-gray-100 cursor-not-allowed"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 cursor-not-allowed"
                 />
                 <input
                     type="text"
@@ -214,12 +214,12 @@ export const AddData = () => {
                     placeholder="Mobile Number"
                     onChange={handleChange}
                     required
-                    className="p-2 border rounded"
+                    className="p-3 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 />
             </div>
             <button
                 type="submit"
-                className="mt-4 bg-blue-500 text-white p-3 rounded hover:bg-blue-600"
+                className="mt-6 w-full bg-yellow-500 text-white py-3 rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-700"
             >
                 Submit
             </button>

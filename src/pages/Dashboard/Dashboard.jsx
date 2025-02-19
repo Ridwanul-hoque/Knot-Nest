@@ -39,6 +39,11 @@ const Dashboard = () => {
                         ) : (
                             <>
                                 <li>
+                                    <NavLink to="/dashboard/user">
+                                        Profile
+                                    </NavLink>
+                                </li>
+                                <li>
                                     <NavLink to="/dashboard/addData">
                                         Add Biodata
                                     </NavLink>

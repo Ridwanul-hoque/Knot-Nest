@@ -23,7 +23,7 @@ const Navbar = ({ scrollToReview }) => {
             <li><Link to='/dashboard/adminDashboard' className="text-yellow-500 hover:text-black">Dashboard</Link> </li> <li><Link to={'/adminreview'} className='text-yellow-500 hover:text-black'>User Complain</Link></li></>
         }
         {
-            user && !isAdmin && <><li><Link to='/dashboard/viewData' className="text-yellow-500 hover:text-black">Dashboard</Link></li><li><Link to={'/addreview'} className='text-yellow-500 hover:text-black'>Share Your Experience</Link></li></>
+            user && !isAdmin && <><li><Link to='/dashboard/user' className="text-yellow-500 hover:text-black">Dashboard</Link></li><li><Link to={'/addreview'} className='text-yellow-500 hover:text-black'>Share Your Experience</Link></li></>
         }
     </>
     return (

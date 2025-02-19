@@ -22,6 +22,7 @@ import ApprovedStatus from "../pages/Dashboard/ApprovedStatus/ApprovedStatus";
 import Review from "../pages/Shared/Review/Review";
 import AddReview from "../pages/AddReview/AddReview";
 import UserReview from "../pages/UserReview/UserReview";
+import UserDashboard from "../pages/UserDashboard/UserDashboard";
 
 
 
@@ -98,7 +99,12 @@ export const router = createBrowserRouter([
       },
       {
         path: 'addreview',
-        element: <AddReview></AddReview>,
+        element: <PrivateRoutes><AddReview></AddReview></PrivateRoutes>,
+
+      },
+      {
+        path: 'user',
+        element: <PrivateRoutes><UserDashboard></UserDashboard></PrivateRoutes>,
 
       },
 
