@@ -8,7 +8,7 @@ Welcome to **KnotNest**, an intuitive and user-friendly online matrimony platfor
 
 ## 🚀 Live Demo
 
-🔗 **Live Site URL:** [Insert Your Live Site URL Here]  
+🔗 **Live Site URL:** [https://matrimonial-knotnest.web.app/]  
 
  
 
