@@ -43,12 +43,12 @@ export const router = createBrowserRouter([
       {
         path: 'BioData/:id',
         element: <BioDetails></BioDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/Bio/${params.id}`)
+        loader: ({ params }) => fetch(`https://knot-nest-server.vercel.app/Bio/${params.id}`)
       },
       {
         path: 'checkout/:id',
         element: <CheckOut></CheckOut>,
-        loader: ({ params }) => fetch(`http://localhost:5000/Bio/${params.id}`)
+        loader: ({ params }) => fetch(`https://knot-nest-server.vercel.app/Bio/${params.id}`)
       },
       {
         path: 'register',

@@ -7,7 +7,7 @@ const AllBioData = () => {
 
     // Fetch bios with the filter applied
     useEffect(() => {
-        let url = 'http://localhost:5000/Bio?';
+        let url = 'https://knot-nest-server.vercel.app/Bio?';
         
         // Build the query parameters based on the filter state
         Object.keys(filter).forEach(key => {

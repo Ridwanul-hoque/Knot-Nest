@@ -11,7 +11,7 @@ const AddReview = () => {
     const handleSubmit = e => {
         e.preventDefault();
         console.log('Submitting review:', review); // Debugging log
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://knot-nest-server.vercel.app/reviews', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(review)

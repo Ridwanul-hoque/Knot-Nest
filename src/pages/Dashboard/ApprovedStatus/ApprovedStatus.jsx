@@ -7,7 +7,7 @@ const PaymentTable = () => {
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const response = await fetch('http://localhost:5000/payment'); // Fetch payments from backend
+        const response = await fetch('https://knot-nest-server.vercel.app/payment'); // Fetch payments from backend
         const data = await response.json();
         setPayments(data);
       } catch (error) {
@@ -21,7 +21,7 @@ const PaymentTable = () => {
   // Approve payment status
   const handleApproveStatus = async (paymentId) => {
     try {
-      const response = await fetch(`http://localhost:5000/payment/approve/${paymentId}`, {
+      const response = await fetch(`https://knot-nest-server.vercel.app/payment/approve/${paymentId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

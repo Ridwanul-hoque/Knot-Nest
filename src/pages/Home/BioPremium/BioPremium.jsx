@@ -7,7 +7,7 @@ const BioPremium = () => {
     const [Bios, setBios] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/Bio')
+        fetch('https://knot-nest-server.vercel.app/Bio')
             .then(res => res.json())
             .then(data => {
                 const premiumBio = data.filter(item => item.role === 'premium');

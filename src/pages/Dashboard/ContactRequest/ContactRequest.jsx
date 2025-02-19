@@ -11,7 +11,7 @@ const ContactRequest = () => {
     const fetchData = async () => {
       try {
         // Fetch payments based on the logged-in user's email
-        const paymentRes = await fetch("http://localhost:5000/payment");
+        const paymentRes = await fetch("https://knot-nest-server.vercel.app/payment");
         const paymentData = await paymentRes.json();
 
         // Filter payments that are approved and match the logged-in user
@@ -20,7 +20,7 @@ const ContactRequest = () => {
         );
 
         // Fetch biodata for each approved payment
-        const bioRes = await fetch("http://localhost:5000/Bio");
+        const bioRes = await fetch("https://knot-nest-server.vercel.app/Bio");
         const bioData = await bioRes.json();
 
         // Map biodata to the corresponding payments
