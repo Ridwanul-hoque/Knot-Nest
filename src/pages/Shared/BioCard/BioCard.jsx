@@ -6,7 +6,7 @@ const BioCard = ({ item }) => {
         <div className='flex space-x-2'>
             <img  className='w-[100px]' src={profileImage} alt="" />
             <div>
-                <h3 className='uppercase'>{name}-------</h3>
+                <h3 className='uppercase'>{name}</h3>
                 <p>Age: {age}</p>
             </div>
             <p className='text-yellow-500'>Gender: {biodataType}</p>

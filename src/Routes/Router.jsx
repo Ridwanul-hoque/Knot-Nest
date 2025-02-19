@@ -20,6 +20,8 @@ import Favourite from "../pages/Dashboard/Favourite/Favourite";
 import ContactRequest from "../pages/Dashboard/ContactRequest/ContactRequest";
 import ApprovedStatus from "../pages/Dashboard/ApprovedStatus/ApprovedStatus";
 import Review from "../pages/Shared/Review/Review";
+import AddReview from "../pages/AddReview/AddReview";
+import UserReview from "../pages/UserReview/UserReview";
 
 
 
@@ -61,6 +63,16 @@ export const router = createBrowserRouter([
         element: <Review></Review>,
 
       },
+      {
+        path: 'addreview',
+        element: <AddReview></AddReview>,
+
+      },
+      {
+        path: 'adminreview',
+        element: <UserReview></UserReview>,
+
+      },
     ]
   },
   {
@@ -84,6 +96,11 @@ export const router = createBrowserRouter([
         path: 'contact',
         element: <PrivateRoutes><ContactRequest></ContactRequest></PrivateRoutes>
       },
+      {
+        path: 'addreview',
+        element: <AddReview></AddReview>,
+
+      },
 
 
       {
@@ -97,7 +114,8 @@ export const router = createBrowserRouter([
       {
         path: 'approveStatus',
         element: <AdminRoutes><ApprovedStatus></ApprovedStatus></AdminRoutes>
-      }
+      },
+      
       // {
       //   path: 'add',
       //   element: <AdminRoutes></AdminRoutes>,

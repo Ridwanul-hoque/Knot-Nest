@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { Pie, Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
 
 const AdminDashboard = () => {
     const [bioData, setBioData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Fetch data using fetch API
         const fetchBioData = async () => {
             try {
                 const response = await fetch('http://localhost:5000/Bio'); // Replace with your API URL
@@ -29,29 +32,73 @@ const AdminDashboard = () => {
     const maleCount = bioData.filter(item => item.biodataType === 'Male').length;
     const femaleCount = bioData.filter(item => item.biodataType === 'Female').length;
 
+    // Chart Data
+    const pieData = {
+        labels: ['Male', 'Female'],
+        datasets: [
+            {
+                data: [maleCount, femaleCount],
+                backgroundColor: ['#FF6384', '#36A2EB'],
+                hoverBackgroundColor: ['#FF4379', '#56A9E7'],
+            },
+        ],
+    };
+
+    const barData = {
+        labels: ['Total Biodata', 'Male', 'Female'],
+        datasets: [
+            {
+                label: 'Biodata Count',
+                data: [total, maleCount, femaleCount],
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                borderColor: ['#FF4379', '#56A9E7', '#FFB84D'],
+                borderWidth: 1,
+            },
+        ],
+    };
+
     return (
-        <div className="p-4">
-            <h1 className="text-xl font-bold mb-4">Admin Dashboard</h1>
+        <div className="p-8 bg-pink-50 min-h-screen">
+            <h1 className="text-3xl font-bold text-center mb-8 text-yellow-600">Admin Dashboard</h1>
             {loading ? (
-                <p>Loading...</p>
+                <div className="text-center text-lg text-gray-500">Loading...</div>
             ) : (
-                <div className="overflow-x-auto">
-                    <table className="table-auto border-collapse border border-gray-300 w-full">
-                        <thead>
-                            <tr className="bg-gray-200">
-                                <th className="border border-gray-300 px-4 py-2">Total Biodata</th>
-                                <th className="border border-gray-300 px-4 py-2">Male</th>
-                                <th className="border border-gray-300 px-4 py-2">Female</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td className="border border-gray-300 px-4 py-2 text-center">{total}</td>
-                                <td className="border border-gray-300 px-4 py-2 text-center">{maleCount}</td>
-                                <td className="border border-gray-300 px-4 py-2 text-center">{femaleCount}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div>
+                    {/* Table Section */}
+                    <div className="overflow-x-auto mb-10">
+                        <table className="table-auto border-collapse border border-gray-300 w-full shadow-lg rounded-lg">
+                            <thead className="bg-yellow-500 text-white">
+                                <tr>
+                                    <th className="border border-gray-300 px-6 py-3 text-left">Total Biodata</th>
+                                    <th className="border border-gray-300 px-6 py-3 text-left">Male</th>
+                                    <th className="border border-gray-300 px-6 py-3 text-left">Female</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="hover:bg-gray-100">
+                                    <td className="border border-gray-300 px-6 py-4 text-center text-lg">{total}</td>
+                                    <td className="border border-gray-300 px-6 py-4 text-center text-lg">{maleCount}</td>
+                                    <td className="border border-gray-300 px-6 py-4 text-center text-lg">{femaleCount}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Pie Chart Section */}
+                    <div className="mb-10">
+                        <h2 className="text-2xl font-semibold text-center text-yellow-600 mb-4">Gender Distribution</h2>
+                        <div className="w-full max-w-xl mx-auto">
+                            <Pie data={pieData} />
+                        </div>
+                    </div>
+
+                    {/* Bar Chart Section */}
+                    <div>
+                        <h2 className="text-2xl font-semibold text-center text-yellow-600 mb-4">Biodata Distribution</h2>
+                        <div className="w-full max-w-xl mx-auto">
+                            <Bar data={barData} />
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

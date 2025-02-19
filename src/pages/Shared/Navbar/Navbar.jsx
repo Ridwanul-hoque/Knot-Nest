@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import useAdmin from '../../../Hooks/useAdmin';
 
-const Navbar = () => {
+const Navbar = ({ scrollToReview }) => {
     const { user, logOut } = useContext(AuthContext);
     const [isAdmin] = useAdmin()
     const handleLogout = () => {
@@ -15,14 +15,15 @@ const Navbar = () => {
 
         <li> <Link to={'/'} className="text-yellow-500 hover:text-black">Home</Link></li>
         <li><Link to={'/BioData'} className="text-yellow-500 hover:text-black">Bio Data</Link></li>
-        <li><Link to={'/review'} className='text-yellow-500 hover:text-black'>Customer Review</Link></li>
-        <li><Link className='text-yellow-500 hover:text-black'>Customer Support</Link></li>
+        <li><button  onClick={() => window.dispatchEvent(new Event("scrollToReview"))} className='text-yellow-500 hover:text-black'>Customer Review</button></li>
+        
 
         {
-            user && isAdmin && <li><Link to='/dashboard/adminDashboard' className="text-yellow-500 hover:text-black">Dashboard</Link></li>
+            user && isAdmin && <>
+            <li><Link to='/dashboard/adminDashboard' className="text-yellow-500 hover:text-black">Dashboard</Link> </li> <li><Link to={'/adminreview'} className='text-yellow-500 hover:text-black'>User Complain</Link></li></>
         }
         {
-            user && !isAdmin && <li><Link to='/dashboard/viewData' className="text-yellow-500 hover:text-black">Dashboard</Link></li>
+            user && !isAdmin && <><li><Link to='/dashboard/viewData' className="text-yellow-500 hover:text-black">Dashboard</Link></li><li><Link to={'/addreview'} className='text-yellow-500 hover:text-black'>Share Your Experience</Link></li></>
         }
     </>
     return (
