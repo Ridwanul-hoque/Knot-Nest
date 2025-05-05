@@ -1,48 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaHeart } from 'react-icons/fa';
 
 const AllBioDataCard = ({ bio }) => {
-    const {_id, name, 
-        biodataType, 
-        profileImage, 
-        permanentDivision, 
-        age, 
-        occupation } = bio;
+    const { _id, name, biodataType, profileImage, permanentDivision, age, occupation } = bio;
+
     return (
-        <div className="card bg-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition-shadow duration-300">
-            <figure className="rounded-xl overflow-hidden">
+        <div className="relative bg-gradient-to-br from-white via-pink-50 to-yellow-50 shadow-lg rounded-3xl overflow-hidden transition-transform transform hover:-translate-y-1 hover:shadow-2xl group">
+            <div className="relative">
                 <img
                     src={profileImage}
-                    className="h-[166px] w-full object-cover"
-                    alt="Thumbnail"
+                    alt={name}
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-            </figure>
-            <div className="card-body mt-4">
-                <h2 className="card-title text-xl font-semibold text-gray-800 mb-2">
-                    
-                </h2>
-                <p className="text-gray-600 text-sm mb-4">Name: <span className="font-medium">{name}</span></p>
-                <div className="text-xs flex items-center text-gray-500 mb-4">
-                    <p>Email: <span className="font-medium">Age: {age}</span></p>
-                    <div className="border-l border-gray-300 mx-2 h-4"></div>
-                    <p>Location: <span className="font-medium">{occupation}</span></p>
+                <div className="absolute top-3 right-3 bg-white bg-opacity-90 p-2 rounded-full shadow-md hover:bg-pink-200 transition duration-300">
+                    <FaHeart className="text-pink-500" />
                 </div>
-                <div className="border-t-2 border-dashed mb-4"></div>
-                <div className="card-actions flex items-center justify-between">
-                    <div className="badge badge-outline px-3 py-1 text-sm font-medium capitalize">
-                       Gender: {biodataType}
-                    </div>
-                    <div className="text-sm text-gray-700">
-                        Permanent Address: <span className="font-medium">{permanentDivision}</span>
-                    </div>
-                    <div className="text-sm text-gray-700 font-bold">
-                        Age: {age}
-                    </div>
-                    <div className="flex justify-end">
-                        <Link to={`/BioData/${_id}`}><button className="px-4 py-2 bg-pink-800 text-yellow-500 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
-                            Details
-                        </button></Link>
-                    </div>
+            </div>
+            <div className="p-6 text-gray-800 space-y-3">
+                <h2 className="text-2xl font-bold">{name}</h2>
+                <p className="text-sm">Age: <span className="font-medium">{age}</span></p>
+                <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                    <p>Gender: <span className="font-semibold text-gray-800">{biodataType}</span></p>
+                    <p>Profession: <span className="font-semibold text-gray-800">{occupation}</span></p>
+                </div>
+                <div className="border-t border-gray-200 my-3"></div>
+                <p className="text-sm">Address: <span className="font-medium">{permanentDivision}</span></p>
+
+                <div className="flex justify-between items-center pt-4">
+                    <Link to={`/BioData/${_id}`}>
+                        <button className="px-5 py-2 bg-pink-500 text-white rounded-full font-medium transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-yellow-500 hover:shadow-lg">
+                            View Details
+                        </button>
+                    </Link>
+                    <p className="text-sm text-gray-500 italic hidden group-hover:block transition duration-300">
+                        More Info Below
+                    </p>
                 </div>
             </div>
         </div>

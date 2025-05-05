@@ -58,8 +58,8 @@ const ViewData = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <h2 className="text-3xl font-semibold mb-6 text-center text-yellow-600">Your Biodata</h2>
+    <div className="max-w-6xl mx-auto p-6 bg-gradient-to-br from-pink-100 via-yellow-50 to-pink-200 shadow-lg rounded-lg ">
+      <h2 className="text-3xl font-bold mb-6 text-center text-pink-900">Your Biodata</h2>
       <div className="space-y-4">
         {biodata.map((data) => (
           <div

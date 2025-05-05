@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
-
+import { FaEnvelope, FaPhone, FaHeart } from "react-icons/fa";
 
 const BioDetails = () => {
     const bio = useLoaderData();
-    const { user } = useAuth(); // Access user from AuthContext
+    const { user } = useAuth();
     const [isPremium, setIsPremium] = useState(false);
 
     const {
@@ -24,14 +24,12 @@ const BioDetails = () => {
         if (user?.email) {
             fetch(`https://knot-nest-server.vercel.app/isPremium/${user.email}`)
                 .then((res) => res.json())
-                .then((data) => {
-                    setIsPremium(data.isPremium); // Update isPremium state
-                });
+                .then((data) => setIsPremium(data.isPremium));
         }
     }, [user?.email]);
 
     const handleAddToFavorites = () => {
-        fetch(`https://knot-nest-server.vercel.app/add-favorite`, {  // Correct endpoint for adding to favorites
+        fetch(`https://knot-nest-server.vercel.app/add-favorite`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -52,54 +50,63 @@ const BioDetails = () => {
             });
     };
 
-
-
     return (
-        <div className="p-4">
-            <div className="flex items-center gap-4">
-                <img src={profileImage} alt={name} className="w-24 h-24 rounded-full" />
-                <div>
-                    <h2 className="text-2xl font-semibold">{name}</h2>
-                    <p>{biodataType}</p>
-                    <p>{occupation}</p>
-                    <p>{permanentDivision}</p>
-                    <p>{age} years old</p>
+        <div className="max-w-3xl mx-auto px-6 py-8">
+            <div className="bg-gradient-to-br from-white via-pink-50 to-yellow-50 shadow-xl rounded-3xl p-6 space-y-6">
+                {/* Profile Header */}
+                <div className="flex items-center gap-6">
+                    <img
+                        src={profileImage}
+                        alt={name}
+                        className="w-28 h-28 rounded-full object-cover shadow-md"
+                    />
+                    <div className="text-gray-800 space-y-1">
+                        <h2 className="text-3xl font-bold">{name}</h2>
+                        <p className="text-sm text-pink-600 font-medium">{biodataType}</p>
+                        <p className="text-sm">{occupation}</p>
+                        <p className="text-sm">{permanentDivision}</p>
+                        <p className="text-sm">{age} years old</p>
+                    </div>
                 </div>
-            </div>
 
-            <div className="mt-4">
-                {isPremium ? (
-                    <>
-                        <p>
-                            <strong>Email:</strong> {email}
+                {/* Contact Info */}
+                <div className="mt-4">
+                    {isPremium ? (
+                        <div className="space-y-2 text-gray-700">
+                            <p className="flex items-center gap-2">
+                                <FaEnvelope className="text-pink-500" />
+                                <span>{email}</span>
+                            </p>
+                            <p className="flex items-center gap-2">
+                                <FaPhone className="text-pink-500" />
+                                <span>{phone}</span>
+                            </p>
+                        </div>
+                    ) : (
+                        <p className="text-gray-500 italic">
+                            Contact information is available to <strong>premium members</strong> only.
                         </p>
-                        <p>
-                            <strong>Phone:</strong> {phone}
-                        </p>
-                    </>
-                ) : (
-                    <p className="text-gray-600">
-                        Contact information is visible to premium members only.
-                    </p>
-                )}
-            </div>
+                    )}
+                </div>
 
-            <div className="mt-4 flex gap-4">
-                <button
-                    className="px-4 py-2 bg-blue-500 text-white rounded-lg"
-                    onClick={handleAddToFavorites}
-                >
-                    Add to Favorites
-                </button>
-
-                {!user?.isPremium && (
-                    <Link
-                        to={`/checkout/${_id}`}
-                        className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+                {/* Action Buttons */}
+                <div className="mt-6 flex flex-wrap gap-4">
+                    <button
+                        className="flex items-center gap-2 px-5 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-full font-semibold shadow-md transition-transform transform hover:scale-105"
+                        onClick={handleAddToFavorites}
                     >
-                        Request Contact Information
-                    </Link>
-                )}
+                        <FaHeart /> Add to Favorites
+                    </button>
+
+                    {!isPremium && (
+                        <Link
+                            to={`/checkout/${_id}`}
+                            className="px-5 py-2 bg-green-500 hover:bg-green-600 text-white rounded-full font-semibold shadow-md transition-transform transform hover:scale-105"
+                        >
+                            Request Contact Information
+                        </Link>
+                    )}
+                </div>
             </div>
         </div>
     );

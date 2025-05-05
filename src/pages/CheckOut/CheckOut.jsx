@@ -61,66 +61,73 @@ const Checkout = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
-  const amount = 5; // Fixed price in dollars
+  const amount = 5; // Fixed price
   const [paymentStatus, setPaymentStatus] = useState("");
 
   const handlePayment = async () => {
     try {
-      // POST request to store payment in the backend
       const paymentData = {
         userEmail: user.email,
         biodataId: biodata._id,
-        amount: amount,
-        status: "pending", // Payment status initially set to "pending"
+        amount,
+        status: "pending",
       };
 
-      const response = await fetch("https://knot-nest-server.vercel.app/payment", {
+      const res = await fetch("https://knot-nest-server.vercel.app/payment", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(paymentData),
       });
 
-      if (response.ok) {
-        setPaymentStatus("Payment is pending. Please wait for admin approval.");
+      if (res.ok) {
+        setPaymentStatus("✅ Payment is pending. Please wait for admin approval.");
       } else {
-        setPaymentStatus("Error during payment. Please try again.");
+        setPaymentStatus("❌ Error during payment. Please try again.");
       }
-    } catch (error) {
-      console.error("Error during payment:", error);
-      setPaymentStatus("Error during payment. Please try again.");
+    } catch (err) {
+      console.error("Error:", err);
+      setPaymentStatus("❌ Error during payment. Please try again.");
     }
   };
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Checkout</h2>
+    <div className="max-w-2xl mx-auto px-6 py-10">
+      <h2 className="text-3xl font-bold text-pink-600 mb-6">Secure Checkout</h2>
+
       {biodata && (
-        <div className="border p-4 rounded-lg mb-6">
-          <h3 className="text-xl font-semibold">{biodata.name}</h3>
-          <p>Biodata Type: {biodata.biodataType}</p>
-          <p>Occupation: {biodata.occupation}</p>
-          <p>Permanent Division: {biodata.permanentDivision}</p>
-          <p>Age: {biodata.age} years old</p>
-          <p>Price: ${amount}</p>
+        <div className="bg-gradient-to-br from-white via-pink-50 to-yellow-50 border rounded-3xl shadow-lg p-6 mb-6">
+          <h3 className="text-2xl font-semibold text-gray-800">{biodata.name}</h3>
+          <p className="text-gray-600">Biodata Type: {biodata.biodataType}</p>
+          <p className="text-gray-600">Occupation: {biodata.occupation}</p>
+          <p className="text-gray-600">Location: {biodata.permanentDivision}</p>
+          <p className="text-gray-600">Age: {biodata.age} years</p>
+          <p className="mt-2 font-bold text-green-600">Access Price: ${amount}</p>
         </div>
       )}
 
-      {/* Payment Button */}
       <button
         onClick={handlePayment}
-        className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+        className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full shadow-md transition-transform transform hover:scale-105 duration-200"
       >
         Pay ${amount}
       </button>
 
-      {paymentStatus && <p className="mt-4">{paymentStatus}</p>}
+      {paymentStatus && (
+        <div
+          className={`mt-4 px-4 py-2 rounded-lg font-medium ${
+            paymentStatus.includes("✅")
+              ? "bg-green-100 text-green-700"
+              : "bg-red-100 text-red-700"
+          }`}
+        >
+          {paymentStatus}
+        </div>
+      )}
 
-      <div className="flex gap-4 mt-4">
+      <div className="mt-6">
         <Link
           to="/"
-          className="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
+          className="inline-block px-6 py-2 bg-gray-300 hover:bg-gray-400 text-gray-800 rounded-full font-medium transition"
         >
           Cancel
         </Link>

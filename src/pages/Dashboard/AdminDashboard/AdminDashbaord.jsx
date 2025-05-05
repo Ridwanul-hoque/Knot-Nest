@@ -59,35 +59,31 @@ const AdminDashboard = () => {
 
     return (
         <div className="p-8 bg-pink-50 min-h-screen">
-            <h1 className="text-3xl font-bold text-center mb-8 text-yellow-600">Admin Dashboard</h1>
+            <h1 className="text-3xl font-bold text-center mb-10 text-yellow-600">Admin Dashboard</h1>
             {loading ? (
                 <div className="text-center text-lg text-gray-500">Loading...</div>
             ) : (
-                <div>
-                    {/* Table Section */}
-                    <div className="overflow-x-auto mb-10">
-                        <table className="table-auto border-collapse border border-gray-300 w-full shadow-lg rounded-lg">
-                            <thead className="bg-yellow-500 text-white">
-                                <tr>
-                                    <th className="border border-gray-300 px-6 py-3 text-left">Total Biodata</th>
-                                    <th className="border border-gray-300 px-6 py-3 text-left">Male</th>
-                                    <th className="border border-gray-300 px-6 py-3 text-left">Female</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr className="hover:bg-gray-100">
-                                    <td className="border border-gray-300 px-6 py-4 text-center text-lg">{total}</td>
-                                    <td className="border border-gray-300 px-6 py-4 text-center text-lg">{maleCount}</td>
-                                    <td className="border border-gray-300 px-6 py-4 text-center text-lg">{femaleCount}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div className="space-y-12">
+                    {/* Summary Cards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div className="bg-white p-6 rounded-xl shadow-md text-center border border-yellow-100">
+                            <h3 className="text-xl font-semibold text-gray-600">Total Biodata</h3>
+                            <p className="text-3xl font-bold text-yellow-600 mt-2">{total}</p>
+                        </div>
+                        <div className="bg-white p-6 rounded-xl shadow-md text-center border border-yellow-100">
+                            <h3 className="text-xl font-semibold text-gray-600">Male</h3>
+                            <p className="text-3xl font-bold text-blue-500 mt-2">{maleCount}</p>
+                        </div>
+                        <div className="bg-white p-6 rounded-xl shadow-md text-center border border-yellow-100">
+                            <h3 className="text-xl font-semibold text-gray-600">Female</h3>
+                            <p className="text-3xl font-bold text-pink-500 mt-2">{femaleCount}</p>
+                        </div>
                     </div>
 
                     {/* Pie Chart Section */}
-                    <div className="mb-10">
+                    <div>
                         <h2 className="text-2xl font-semibold text-center text-yellow-600 mb-4">Gender Distribution</h2>
-                        <div className="w-full max-w-xl mx-auto">
+                        <div className="w-full max-w-xl mx-auto bg-white p-4 rounded-xl shadow-md">
                             <Pie data={pieData} />
                         </div>
                     </div>
@@ -95,7 +91,7 @@ const AdminDashboard = () => {
                     {/* Bar Chart Section */}
                     <div>
                         <h2 className="text-2xl font-semibold text-center text-yellow-600 mb-4">Biodata Distribution</h2>
-                        <div className="w-full max-w-xl mx-auto">
+                        <div className="w-full max-w-xl mx-auto bg-white p-4 rounded-xl shadow-md">
                             <Bar data={barData} />
                         </div>
                     </div>
