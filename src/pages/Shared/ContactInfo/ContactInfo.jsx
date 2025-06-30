@@ -3,7 +3,7 @@ import { FaClock, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa'
 
 const ContactSection = () => {
     return (
-        <div className="bg-white py-16 px-6 md:px-0">
+        <div className="bg-white py-18 px-8 md:px-0">
             <div className="max-w-5xl mx-auto flex flex-col md:flex-row shadow-xl rounded-xl overflow-hidden border border-yellow-100">
                 
                 {/* Left: Message */}
