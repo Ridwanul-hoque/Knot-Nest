@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import BioCard from "../../Shared/BioCard/BioCard";
-import Review from "../../Shared/Review/Review";
 import { Link } from "react-router-dom";
 
 const BioPremium = () => {
@@ -17,36 +15,36 @@ const BioPremium = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-pink-100 via-yellow-100 to-pink-100 my-8 p-8 rounded-2xl shadow-xl">
-      <h2 className="text-yellow-500 text-4xl font-bold text-center mb-10 drop-shadow-sm">
+    <div className="my-16 px-6 lg:px-16">
+      <h2 className="text-yellow-600 text-4xl font-bold text-center mb-12 tracking-wide drop-shadow-sm">
         ✨ Premium Bios ✨
       </h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Left group: Info left, image center */}
-        <div className="space-y-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
+        {/* LEFT COLUMN */}
+        <div className="space-y-14">
           {Bios.slice(0, 3).map((item) => (
             <div
               key={item._id}
               className="flex items-center justify-center gap-6"
             >
-              {/* Info Left */}
-              <div className="bg-white shadow-xl border border-yellow-100 p-6 rounded-2xl w-full max-w-md text-right">
-                <h3 className="text-2xl font-bold text-yellow-600 uppercase mb-1">
+              {/* TEXT SECTION */}
+              <div className="bg-gradient-to-br from-yellow-100 via-pink-100 to-yellow-100 p-6 rounded-3xl w-full max-w-md text-right shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.15)] transition-all duration-300">
+                <h3 className="text-2xl font-extrabold text-yellow-700 uppercase mb-1">
                   {item.name}
                 </h3>
-                <p className="text-sm text-pink-600 font-semibold uppercase mb-2">
+                <p className="text-sm text-pink-700 font-semibold uppercase mb-2">
                   {item.occupation}
                 </p>
-                <p className="text-gray-700">
+                <p className="text-gray-800">
                   <strong>Age:</strong> {item.age} &nbsp;|&nbsp;
                   <strong>Gender:</strong>{" "}
-                  <span className="text-yellow-500">{item.biodataType}</span>
+                  <span className="text-yellow-600">{item.biodataType}</span>
                 </p>
               </div>
 
-              {/* Image Center */}
-              <div className="w-[140px] h-[140px] rounded-full overflow-hidden border-4 border-yellow-400 shadow-md shrink-0">
+              {/* IMAGE */}
+              <div className="w-[140px] h-[140px] rounded-full overflow-hidden border-[6px] border-white shadow-xl">
                 <img
                   src={item.profileImage}
                   alt={item.name}
@@ -57,15 +55,15 @@ const BioPremium = () => {
           ))}
         </div>
 
-        {/* Right group: Image center, info right */}
-        <div className="space-y-10">
+        {/* RIGHT COLUMN */}
+        <div className="space-y-14">
           {Bios.slice(3, 6).map((item) => (
             <div
               key={item._id}
               className="flex items-center justify-center gap-6"
             >
-              {/* Image Center */}
-              <div className="w-[140px] h-[140px] rounded-full overflow-hidden border-4 border-yellow-400 shadow-md shrink-0">
+              {/* IMAGE */}
+              <div className="w-[140px] h-[140px] rounded-full overflow-hidden border-[6px] border-white shadow-xl ">
                 <img
                   src={item.profileImage}
                   alt={item.name}
@@ -73,18 +71,18 @@ const BioPremium = () => {
                 />
               </div>
 
-              {/* Info Right */}
-              <div className="bg-white shadow-xl border border-yellow-100 p-6 rounded-2xl w-full max-w-md text-left">
-                <h3 className="text-2xl font-bold text-yellow-600 uppercase mb-1">
+              {/* TEXT SECTION */}
+              <div className="bg-gradient-to-br from-yellow-100 via-pink-100 to-yellow-100 p-6 rounded-3xl w-full max-w-md text-left shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_28px_rgba(0,0,0,0.15)] transition-all duration-300">
+                <h3 className="text-2xl font-extrabold text-yellow-700 uppercase mb-1">
                   {item.name}
                 </h3>
-                <p className="text-sm text-pink-600 font-semibold uppercase mb-2">
+                <p className="text-sm text-pink-700 font-semibold uppercase mb-2">
                   {item.occupation}
                 </p>
-                <p className="text-gray-700">
+                <p className="text-gray-800">
                   <strong>Age:</strong> {item.age} &nbsp;|&nbsp;
                   <strong>Gender:</strong>{" "}
-                  <span className="text-yellow-500">{item.biodataType}</span>
+                  <span className="text-yellow-600">{item.biodataType}</span>
                 </p>
               </div>
             </div>
@@ -92,10 +90,10 @@ const BioPremium = () => {
         </div>
       </div>
 
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-16">
         <Link
           to={"/BioData"}
-          className="relative inline-block px-8 py-3 bg-yellow-500 text-white font-bold rounded-full overflow-hidden shadow-lg transition duration-300 hover:bg-white hover:text-yellow-500 border-2 border-yellow-500 group"
+          className="relative inline-block px-10 py-3 bg-yellow-500 text-white font-bold rounded-full overflow-hidden shadow-lg transition duration-300 hover:bg-white hover:text-yellow-500 border-2 border-yellow-500 group"
         >
           <span className="absolute inset-0 w-full h-full bg-yellow-100 opacity-0 group-hover:opacity-100 transition duration-300"></span>
           <span className="relative z-10">View All BioData's</span>

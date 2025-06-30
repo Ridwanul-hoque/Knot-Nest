@@ -14,7 +14,7 @@ const Review = forwardRef((props, ref) => {
         <div
             ref={ref}
             id="review-section"
-            className="bg-gradient-to-br from-pink-100 via-yellow-100 to-pink-100 my-16 p-10 rounded-2xl shadow-xl"
+            className="bg-gradient-to-br from-yellow-100 via-pink-100 to-yellow-100 my-16 p-10 rounded-2xl shadow-xl"
         >
             <h2 className="text-4xl font-extrabold text-center mb-14 text-yellow-600 tracking-wide">
                 🌟 User Experience
